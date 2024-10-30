@@ -11,7 +11,7 @@ This project visualizes data on illegal animals kept as pets across New York Cit
 ## Data
 
 The data includes various types of illegal animals reported as pets within NYC, categorized by:
-- **Animal Types**: Snake, Monkey, Ferret, among others.
+- **Animal Types**: Roosters, Farm Animals, and Snakes among others.
 - **Incident Counts**: Aggregated counts per census region, representing the population of illegal animals.
 
 ## Technologies Used
