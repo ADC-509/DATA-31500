@@ -17,8 +17,9 @@
   let path = d3.geoPath().projection(proj);
 
   // Define color scale for population count
-  $: scale = d3.scaleQuantile(d3.schemePiYG[9])
+  $: scale = d3.scaleQuantile()
   .domain(data.map(d => d.properties.population))
+  .range(d3.schemePiYG[9]);
 
   let legend;
   $: {
