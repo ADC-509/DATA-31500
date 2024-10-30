@@ -27,6 +27,10 @@ The data includes various types of illegal animals reported as pets within NYC, 
    ```bash
    npm install
    ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
 ## Project Goals
 
@@ -35,6 +39,5 @@ This visualization aims to provide insights into the spatial patterns of illegal
 ## License
 
 This project is licensed under the MIT License.
-```
 
 This `README.md` provides an overview of the project, its features, data, and technologies used, along with setup instructions and goals. Let me know if you’d like to add or adjust any specific details!
