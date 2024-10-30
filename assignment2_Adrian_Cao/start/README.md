@@ -46,11 +46,3 @@ To deploy the application, we used [Netlify](https://www.netlify.com/) for hosti
 ## License
 
 This project is licensed under the MIT License.
-
-### Creating the Zip File
-
-1. **Prepare Files**: Ensure your project folder includes all code, data files, and the `README.md`.
-2. **Compress the Folder**: Select the project folder, right-click, and choose “Send to > Compressed (zipped) folder” on Windows or “Compress” on macOS.
-3. **Upload to Gradescope**: Log in to Gradescope, navigate to the assignment, and upload the zip file.
-
-This setup should meet the requirements for your submission. Let me know if you need further assistance!
