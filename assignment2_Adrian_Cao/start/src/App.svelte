@@ -133,10 +133,6 @@
     padding: 8px;
   }
 
-  .flex-container .row {
-    flex-direction: row;
-  }
-
   .flex-container .col {
     flex-direction: column;
   }

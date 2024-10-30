@@ -34,18 +34,13 @@
 
 <main>
   <svg {width} {height}>
-    <!-- Draw each GeoJSON feature with color fill based on population count -->
     {#each data as d}
-      <path
-        class="municipal"
-        d={path(d)}
-        style="fill: {scale(+d.properties.population || 0)}"
-      />
+      <path style = "fill: {scale(+d.properties.population)};"
+        d={path(d)}/>
     {/each}
-
-    <!-- Optional overlay for additional reference -->
     {#each fullData as d}
-      <path class="geooverlay" d={path(d)} />
+      <path class = "geooverlay"
+        d={path(d)}/>
     {/each}
 
     <!-- Legend for color scale -->
@@ -54,11 +49,6 @@
 </main>
 
 <style>
-  .municipal {
-    stroke: white;
-    stroke-width: 0.5px;
-  }
-
   .geooverlay {
     stroke: grey;
     stroke-width: 1px;
