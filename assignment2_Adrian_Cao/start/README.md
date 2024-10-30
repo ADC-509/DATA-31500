@@ -46,9 +46,6 @@ To deploy the application, we used [Netlify](https://www.netlify.com/) for hosti
 ## License
 
 This project is licensed under the MIT License.
-```
-
----
 
 ### Creating the Zip File
 
