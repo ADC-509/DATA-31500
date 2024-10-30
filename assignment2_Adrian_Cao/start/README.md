@@ -1,43 +1,59 @@
-# Illegal Animals as Pets in NYC - Data Visualization Project
+# NYC Illegal Animals as Pets Data Visualization
 
-This project visualizes data on illegal animals kept as pets across New York City, mapped by census regions. It uses **D3.js** and **Svelte** to create an interactive experience that highlights the distribution of incidents by specific animal types, including **Snake**, **Roosters**, and **Farm Animals**.
+This project visualizes data on illegal animals kept as pets across New York City, organized by census regions. Using **D3.js** and **Svelte**, the app presents an interactive map and histograms, allowing users to explore data on specific animal types, including **Snake**, **Rooster**, and **Farm Animal**.
 
 ## Features
 
-- **Choropleth Map**: A color-coded map of NYC displaying the distribution of illegal animal incidents by population density across regions.
-- **Interactive Histograms**: Three separate histograms illustrate the frequency of incidents for Roosters, Farm Animals, and Snakes, which is the three most common illegal animals as pet in NYC. Users can filter data by specific ranges for each animal type.
-- **Dynamic Legend**: The legend adjusts based on data distribution, displaying both minimum and maximum values in each color range for better interpretability.
+- **Interactive Choropleth Map**: A map of NYC displays population densities of illegal animals kept as pets, color-coded by density.
+- **Filterable Histograms**: Three histograms show the count of incidents for Snakes, Roosters, and Farm Animals by region, with adjustable filters for detailed exploration.
+- **Dynamic Legend**: The map legend automatically adjusts based on data distribution, showing minimum and maximum values in each color range.
+
+## Live Demo
+
+Explore the live app here: [NYC Illegal Animals Data Visualization on Netlify](https://ubiquitous-bienenstitch-0e8bac.netlify.app/)
 
 ## Data
 
-The data includes various types of illegal animals reported as pets within NYC, categorized by:
-- **Animal Types**: Roosters, Farm Animals, and Snakes among others.
-- **Incident Counts**: Aggregated counts per census region, representing the population of illegal animals.
+The dataset includes information on illegal pets categorized by type and census region. Data includes:
+- **Animal Types**: Specific categories such as Snake, Rooster, and Farm Animal.
+- **Incident Counts**: Aggregated counts for each census region, representing the density of illegal animals.
 
 ## Technologies Used
 
-- **Svelte**: Provides a reactive framework for building user interfaces.
-- **D3.js**: Used for data-driven document manipulation, scales, and creating visualizations.
-- **GeoJSON**: Represents NYC's geographic boundaries for census regions, used in the map.
+- **Svelte**: For a reactive UI framework.
+- **D3.js**: For scales, color schemes, and data-driven document manipulation.
+- **GeoJSON**: For NYC census region boundaries used in the map.
 
 ## Project Setup
 
-1. Clone the repository.
-2. Install dependencies:
+1. **Install Dependencies**:
    ```bash
    npm install
    ```
-3. Run the development server:
+2. **Run Development Server**:
    ```bash
    npm run dev
    ```
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-## Project Goals
+## Deployment on Netlify
 
-This visualization aims to provide insights into the spatial patterns of illegal pet ownership in NYC, highlighting trends by animal type and frequency across regions. It can be a valuable tool for policymakers and researchers interested in understanding and addressing illegal pet ownership.
+To deploy the application, we used [Netlify](https://www.netlify.com/) for hosting the static site, generated through Vite. The current live site URL is [here](https://ubiquitous-bienenstitch-0e8bac.netlify.app/).
 
 ## License
 
 This project is licensed under the MIT License.
+```
 
-This `README.md` provides an overview of the project, its features, data, and technologies used, along with setup instructions and goals. Let me know if you’d like to add or adjust any specific details!
+---
+
+### Creating the Zip File
+
+1. **Prepare Files**: Ensure your project folder includes all code, data files, and the `README.md`.
+2. **Compress the Folder**: Select the project folder, right-click, and choose “Send to > Compressed (zipped) folder” on Windows or “Compress” on macOS.
+3. **Upload to Gradescope**: Log in to Gradescope, navigate to the assignment, and upload the zip file.
+
+This setup should meet the requirements for your submission. Let me know if you need further assistance!
