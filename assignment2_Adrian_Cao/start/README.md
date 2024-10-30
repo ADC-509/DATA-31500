@@ -1,6 +1,6 @@
 # Illegal Animals as Pets in NYC - Data Visualization Project
 
-This project visualizes data on illegal animals kept as pets across New York City, mapped by census regions. It uses **D3.js** and **Svelte** to create an interactive experience that highlights the distribution of incidents by specific animal types, including **Snake**, **Monkey**, and **Ferret**.
+This project visualizes data on illegal animals kept as pets across New York City, mapped by census regions. It uses **D3.js** and **Svelte** to create an interactive experience that highlights the distribution of incidents by specific animal types, including **Snake**, **Roosters**, and **Farm Animals**.
 
 ## Features
 
