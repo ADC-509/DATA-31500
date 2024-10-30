@@ -26,3 +26,15 @@ The data includes various types of illegal animals reported as pets within NYC, 
 2. Install dependencies:
    ```bash
    npm install
+   ```
+
+## Project Goals
+
+This visualization aims to provide insights into the spatial patterns of illegal pet ownership in NYC, highlighting trends by animal type and frequency across regions. It can be a valuable tool for policymakers and researchers interested in understanding and addressing illegal pet ownership.
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+This `README.md` provides an overview of the project, its features, data, and technologies used, along with setup instructions and goals. Let me know if you’d like to add or adjust any specific details!
