@@ -50,7 +50,7 @@
           }
         }
       }
-      // console.log(data);
+      console.log(data);
       fullData = [...data];
     });
 	});
