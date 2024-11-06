@@ -104,7 +104,6 @@
   </div>
 </main>
 
-
 <style>
   .flex-container {
     display: flex;
