@@ -5,9 +5,14 @@ import joblib
 import numpy as np
 import os
 
+# Get the directory where this script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Define paths using environment variables or default values
+model_path = os.getenv('MODEL_PATH', os.path.join(script_dir, 'xgboost_model.json'))
+scaler_path = os.getenv('SCALER_PATH', os.path.join(script_dir, 'scaler.pkl'))
+
 # Load the trained model and scaler
-model_path = os.getenv('MODEL_PATH', 'xgboost/xgboost_model.json')
-scaler_path = os.getenv('SCALER_PATH', 'xgboost/scaler.pkl')
 model = xgb.XGBRegressor()
 model.load_model(model_path)
 scaler = joblib.load(scaler_path)
