@@ -6,7 +6,7 @@ import pandas as pd
 import joblib
 
 # Define paths using environment variables or default values
-data_path = os.getenv('DATA_PATH', 'start/public/health_data.csv')
+data_path = os.getenv('DATA_PATH', 'health_data.csv')
 model_path = os.getenv('MODEL_PATH', 'xgboost_model.json')
 scaler_path = os.getenv('SCALER_PATH', 'scaler.pkl')
 
