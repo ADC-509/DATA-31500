@@ -2,9 +2,11 @@ Cython
 numpy
 scikit-learn
 setuptools
+os
 wheel
 Flask
 Flask-CORS
 gunicorn
 xgboost
+joblib
 pandas
