@@ -86,22 +86,44 @@
     loadVisitsData();
   }
 
-  // Prediction function to call XGBoost API
-  async function getPrediction() {
-    try {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userInputs)
-      });
-      const data = await response.json();
-      predictedTOTEXP22 = data.TOTEXP22_prediction;
-    } catch (error) {
-      console.error("Error fetching prediction:", error);
-    }
+  // Linear model coefficients from R
+  const coefficients = {
+    intercept: 4278.403724,
+    DIABDX_M18: -2183.849586,
+    ADHDADDX: -22.857638,
+    ASTHDX: 266.926943,
+    FAMINC22: -0.004642,
+    OBTOTV22: 526.270392,
+    AGE22X: 88.744245
+  };
+
+  // Function to calculate prediction using the linear model
+  function getPrediction() {
+    predictedTOTEXP22 = coefficients.intercept
+      + coefficients.DIABDX_M18 * userInputs.DIABDX_M18
+      + coefficients.ADHDADDX * userInputs.ADHDADDX
+      + coefficients.ASTHDX * userInputs.ASTHDX
+      + coefficients.FAMINC22 * userInputs.FAMINC22
+      + coefficients.OBTOTV22 * userInputs.OBTOTV22
+      + coefficients.AGE22X * userInputs.AGE22X;
   }
+
+  // Prediction function to call XGBoost API
+  // async function getPrediction() {
+  //   try {
+  //     const response = await fetch('http://127.0.0.1:5000/predict', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(userInputs)
+  //     });
+  //     const data = await response.json();
+  //     predictedTOTEXP22 = data.TOTEXP22_prediction;
+  //   } catch (error) {
+  //     console.error("Error fetching prediction:", error);
+  //   }
+  // }
 </script>
 
 <div class="container">

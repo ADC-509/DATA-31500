@@ -1,31 +1,11 @@
-Here's how you can deploy your project to Netlify and draft a README file that introduces the project, outlines its features, and comments on potential future enhancements.
 
-### Step 1: Deploy to Netlify
-
-1. **Log into Netlify** (https://www.netlify.com/) or create an account if you don't have one.
-2. Click **New site from Git** (if your project is on GitHub) or **Import an existing project**.
-3. If you don’t have the project on GitHub, you can use **Deploy manually**:
-   - Compress your project files into a `.zip` file.
-   - Drag and drop the zip file into Netlify’s interface.
-4. **Configure Deployment Settings**:
-   - **Build command**: If you’re using a SvelteKit or Vite project, use `npm run build` or `vite build`.
-   - **Publish directory**: Set this to `dist` or `build` (depending on your setup).
-5. **Deploy** the site. After deployment, Netlify will give you a public URL where your project is hosted.
-
-Once the site is live, copy the public URL.
-
----
-
-### Step 2: Draft the README.md
-
-```markdown
 # Chronic Health Condition Data Story
 
 ## Overview
 
 This project is a dynamic, interactive data story exploring healthcare spending and access disparities among individuals with chronic conditions in the U.S. Users can select specific conditions (like diabetes, asthma, or ADHD) and explore how healthcare expenditures and visit frequencies vary by income level and age group.
 
-The web app uses D3.js for data visualization and Svelte for a responsive, interactive interface. This data story is accessible via a public URL on Netlify: [Project URL](https://your-netlify-site-url.netlify.app)
+The web app uses D3.js for data visualization and Svelte for a responsive, interactive interface. This data story is accessible via a public URL on Netlify: [Project URL](https://illustrious-sable-996c54.netlify.app/)
 
 ## Key Features
 
@@ -36,6 +16,7 @@ The web app uses D3.js for data visualization and Svelte for a responsive, inter
   - Scatter plot and histogram views for healthcare expenditures.
   - A bar chart for medical visit frequencies, with options to sort by income or visit count.
   - Smooth transitions between views to enhance interpretability.
+- **Predictive Modeling with Linear Regression**: Initially, we aimed to deploy a Flask API with XGBoost for healthcare expenditure prediction. However, due to technical constraints, this approach proved challenging to integrate. As an alternative, we implemented a simple linear regression model directly within the application, allowing users to estimate their annual healthcare expenditure based on their health data inputs. This linear model offers a straightforward prediction approach and keeps the application self-contained.
 
 ## Data Source
 
@@ -61,6 +42,6 @@ This project is licensed under the MIT License.
 
 ---
 
-**Note**: This project is hosted on Netlify at the following URL: [Project URL](https://your-netlify-site-url.netlify.app)
+**Note**: This project is hosted on Netlify at the following URL: [Project URL](https://illustrious-sable-996c54.netlify.app/)
 
 ```
