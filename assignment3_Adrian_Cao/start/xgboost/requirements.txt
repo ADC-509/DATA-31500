@@ -2,7 +2,6 @@ Cython
 numpy
 scikit-learn
 setuptools
-os
 wheel
 Flask
 Flask-CORS
