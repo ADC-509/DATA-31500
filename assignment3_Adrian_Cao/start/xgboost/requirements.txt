@@ -10,4 +10,3 @@ xgboost==1.6.2
 joblib==1.2.0
 pandas==1.5.2
 Werkzeug==2.0.3
-ultralytics=8.3.29
