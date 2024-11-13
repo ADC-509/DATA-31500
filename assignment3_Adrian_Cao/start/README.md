@@ -1,49 +1,66 @@
-The following is auto-generated using vite. https://vite.dev/guide/
+Here's how you can deploy your project to Netlify and draft a README file that introduces the project, outlines its features, and comments on potential future enhancements.
 
-# Svelte + Vite
+### Step 1: Deploy to Netlify
 
-This template should help get you started developing with Svelte in Vite.
+1. **Log into Netlify** (https://www.netlify.com/) or create an account if you don't have one.
+2. Click **New site from Git** (if your project is on GitHub) or **Import an existing project**.
+3. If you don’t have the project on GitHub, you can use **Deploy manually**:
+   - Compress your project files into a `.zip` file.
+   - Drag and drop the zip file into Netlify’s interface.
+4. **Configure Deployment Settings**:
+   - **Build command**: If you’re using a SvelteKit or Vite project, use `npm run build` or `vite build`.
+   - **Publish directory**: Set this to `dist` or `build` (depending on your setup).
+5. **Deploy** the site. After deployment, Netlify will give you a public URL where your project is hosted.
 
-## Recommended IDE Setup
+Once the site is live, copy the public URL.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+---
 
-## Need an official Svelte framework?
+### Step 2: Draft the README.md
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+```markdown
+# Chronic Health Condition Data Story
 
-## Technical considerations
+## Overview
 
-**Why use this over SvelteKit?**
+This project is a dynamic, interactive data story exploring healthcare spending and access disparities among individuals with chronic conditions in the U.S. Users can select specific conditions (like diabetes, asthma, or ADHD) and explore how healthcare expenditures and visit frequencies vary by income level and age group.
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+The web app uses D3.js for data visualization and Svelte for a responsive, interactive interface. This data story is accessible via a public URL on Netlify: [Project URL](https://your-netlify-site-url.netlify.app)
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+## Key Features
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+- **Condition-Based Analysis**: Select chronic health conditions to view healthcare expenditure patterns among affected populations.
+- **Income-Based Comparison**: Visualize total healthcare expenditures segmented by income, revealing the economic burden distribution.
+- **Age Group Filter**: Filter data by age group to observe differences in healthcare utilization across life stages.
+- **Interactive Visualization**:
+  - Scatter plot and histogram views for healthcare expenditures.
+  - A bar chart for medical visit frequencies, with options to sort by income or visit count.
+  - Smooth transitions between views to enhance interpretability.
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## Data Source
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+The data is derived from the `MEPS HC-243: 2022 Full Year Consolidated Data File`, which contains information on medical expenditures and utilization for individuals with chronic conditions in the U.S. This dataset is enriched with demographic information (income, age) and health-related variables, providing a comprehensive view of healthcare disparities.
 
-**Why include `.vscode/extensions.json`?**
+## Future Enhancements
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+- **Predictive Modeling with Machine Learning**: An exciting future direction is to implement machine learning to estimate annual healthcare expenditure based on user-provided health data. This could involve feature engineering, weight adjustments, and potentially a deep learning model to handle the complexities of the survey data. Due to time constraints and the model training complexity, this feature was deferred.
+  
+  **Possible Challenges**:
+  - The dataset has many features, requiring significant preprocessing.
+  - Applying deep learning to weighted survey data is complex due to potential overfitting risks and data imbalances.
+  
+- **User-Input Customization**: Allow users to input their own demographic and health information to receive personalized healthcare expenditure estimates, based on the predictive model mentioned above.
+  
+- **Expanded Condition List**: Add more chronic conditions or customize condition combinations to broaden the analysis and offer insights into co-morbidities.
 
-**Why enable `checkJs` in the JS template?**
+- **Enhanced Data Insights**: Add statistical summaries, trends, or comparisons to highlight disparities in healthcare spending and access more explicitly.
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+## License
 
-**Why is HMR not preserving my local component state?**
+This project is licensed under the MIT License.
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+---
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+**Note**: This project is hosted on Netlify at the following URL: [Project URL](https://your-netlify-site-url.netlify.app)
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
 ```
