@@ -3,14 +3,17 @@ from flask_cors import CORS
 import xgboost as xgb
 import joblib
 import numpy as np
+import os
 
 # Load the trained model and scaler
+model_path = os.getenv('MODEL_PATH', 'xgboost/xgboost_model.json')
+scaler_path = os.getenv('SCALER_PATH', 'xgboost/scaler.pkl')
 model = xgb.XGBRegressor()
-model.load_model('C:/Users/a_i_b/OneDrive/文档/GitHub/DATA-31500/assignment3_Adrian_Cao/start/xgboost/xgboost_model.json')
-scaler = joblib.load('C:/Users/a_i_b/OneDrive/文档/GitHub/DATA-31500/assignment3_Adrian_Cao/start/xgboost/scaler.pkl')
+model.load_model(model_path)
+scaler = joblib.load(scaler_path)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS to allow requests from different origins
+CORS(app)  # For local development; customize for production as needed
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -32,4 +35,5 @@ def predict():
     return jsonify({'TOTEXP22_prediction': float(prediction[0])})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
