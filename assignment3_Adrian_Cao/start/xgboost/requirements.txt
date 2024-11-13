@@ -1,5 +1,5 @@
 Cython==0.29.32
-numpy==1.23.5
+numpy==2.1.2
 scikit-learn==1.2.0
 setuptools==65.5.0
 wheel==0.38.4
