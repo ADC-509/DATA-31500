@@ -18,6 +18,11 @@
   let visitsData = [];
   let showScatter = true;
 
+  // Variables to store disease counts, average income, and expenditure
+  let diseaseCounts = { DIABDX_M18: 0, ASTHDX: 0, ADHDADDX: 0 };
+  let avgIncome = 0;
+  let avgExpenditure = 0;
+
   // Variables for user input in prediction
   let userInputs = {
     DIABDX_M18: 0,
@@ -29,10 +34,19 @@
   };
   let predictedTOTEXP22 = null;
 
-  // Function to load data for Disease Recognition section
+  // Function to load data for Disease Recognition section and calculate totals and averages
   const loadDataForDisease = async () => {
     try {
-      const rawData = await d3.csv('health_data.csv'); 
+      const rawData = await d3.csv('health_data.csv');
+      
+      // Calculate disease totals
+      diseaseCounts = {
+        DIABDX_M18: rawData.filter(d => d.DIABDX_M18 === '1').length,
+        ASTHDX: rawData.filter(d => d.ASTHDX === '1').length,
+        ADHDADDX: rawData.filter(d => d.ADHDADDX === '1').length
+      };
+
+      // Filter and process data based on selected disease
       data = rawData
         .filter(d => d[selectedDisease.code] === '1')
         .map(d => ({
@@ -42,6 +56,10 @@
           age: +d.AGE22X
         }))
         .filter(d => d.income && d.expenditure && d.visits && d.age);
+      
+      // Calculate average income and expenditure for the selected disease
+      avgIncome = d3.mean(data, d => d.income);
+      avgExpenditure = d3.mean(data, d => d.expenditure);
     } catch (error) {
       console.error('Error loading data:', error);
     }
@@ -167,20 +185,61 @@
     </div>
 
     <!-- Data Story Narrative -->
-    <p>Notice the clustering of higher expenditures among lower-income groups. Does this trend surprise you?</p>
-
-    <p>The scatter plot below shows how healthcare expenditures for these conditions cluster at lower income levels, with a few cases of very high costs. When switching to the histogram, a pattern emerges: most expenditures are on the lower end, but a small group faces extremely high expenses.</p>
-
-    <p>Each condition has its unique pattern. For example, asthma costs vary widely, reflecting its diverse treatment needs. ADHD, on the other hand, has more concentrated lower expenses, likely due to less intensive treatment requirements.</p>
-
-    <p>These insights highlight the unequal financial impact of chronic conditions, especially on vulnerable groups. By visualizing these costs, we can better understand where support is needed most.</p>
+    <p>
+      Notice how healthcare expenditures cluster among lower-income groups with distinct patterns for each condition. Use the zoom feature in the scatter plot to explore these clusters more closely. Are there surprises as you zoom in on specific data points?
+    </p>
+    
+    <p>
+      The scatter plot below shows how healthcare expenditures differ based on income for 
+      <span class="disease-link" title={`Total cases: ${diseaseCounts[selectedDisease.code]}`}>
+        <a href={`https://en.wikipedia.org/wiki/${selectedDisease.label}`} 
+           target="_blank" 
+           rel="noopener noreferrer">
+          {selectedDisease.label}
+        </a>
+      </span>.
+      For {selectedDisease.label}, the average income level among individuals is  ${avgIncome.toFixed(2)} and the average healthcare expenditure is ${avgExpenditure.toFixed(2)}.
+      When switching to the histogram view, a pattern often emerges: expenditures are mostly lower, but a small group faces much higher costs.
+    </p>
+    
+    {#if selectedDisease.code === 'ASTHDX'}
+      <p>
+        For asthma, costs vary significantly, reflecting diverse treatment needs. Try zooming in to observe this variability more closely, especially at different income levels.
+      </p>
+    {:else if selectedDisease.code === 'ADHDADDX'}
+      <p>
+        For ADHD, expenditures tend to be more concentrated on the lower end, likely due to more standardized treatment requirements. Zoom in to see how spending clusters by income.
+      </p>
+    {:else if selectedDisease.code === 'DIABDX_M18'}
+      <p>
+        For diabetes, costs can increase with complications, which may lead to higher spending in some income groups. Use the zoom function to get a detailed view of these high-spending cases among lower-income individuals.
+      </p>
+    {:else}
+      <p>
+        Each condition has its unique pattern in healthcare spending, reflecting different treatment needs and costs. Zoom in on the scatter plot to explore these differences for the selected condition in detail.
+      </p>
+    {/if}
+    
+    <p>
+      These insights underscore the varying financial burdens of chronic conditions, particularly on vulnerable groups. Through this visualization, you can explore where financial support may be most needed.
+    </p>
   </div>
 
   <!-- Section 2: Unequal Access to Healthcare -->
   <div class="section">
     <div class="section-title">2. Unequal Access to Healthcare</div>
-    <p>Beyond just costs, access to healthcare services like regular check-ups and specialist visits is essential for managing chronic conditions effectively. But do people across income levels and conditions have similar access? Let’s explore the frequency of medical visits for individuals with chronic conditions and compare it to income.</p>
-    
+    <p>
+      Beyond just costs, access to healthcare services like regular check-ups and specialist visits is essential for managing chronic conditions effectively. But do people across income levels with 
+      <a href={`https://en.wikipedia.org/wiki/${selectedDisease.label}`} target="_blank" rel="noopener noreferrer">
+        {selectedDisease.label}
+      </a>
+      have similar access to these services? Let’s explore the frequency of medical visits for individuals with 
+      <a href={`https://en.wikipedia.org/wiki/${selectedDisease.label}`} target="_blank" rel="noopener noreferrer">
+        {selectedDisease.label}
+      </a>
+      and compare it to their income.
+    </p>
+        
     <div class="dropdown">
       <label for="age-group-select">Filter by Age Group:</label>
       <select id="age-group-select" bind:value={selectedAgeGroup} on:change={loadVisitsData}>
